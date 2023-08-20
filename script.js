@@ -46,56 +46,9 @@ burgerButton.onclick = function () {
 
 // Переключение темы на сайте
 
-
-// const toggleTheme = document.querySelector('.theme-button');
-
-// toggleTheme.onclick = function () {
-
-
-
-
-
-
-//   document.querySelector('.moon').classList.toggle('active-theme')
-//   document.querySelector('.sun').classList.toggle('active-theme')
-
-//     document.querySelector('.theme-button').classList.toggle('theme-button-toggle')
-
-
-//     if(document.querySelector('.theme-button').classList.contains('theme-button-toggle')) {
-
-//       document.querySelector('body').style.setProperty("--theme-dark-bg", "#ffffff" )
-//       document.querySelector('body').style.setProperty("--txt-color-main", "#000000" )
-//       localStorage.setItem('olia-theme', "white")
-
-//     } else {
-//       document.querySelector('body').style.setProperty("--theme-dark-bg", "#000000" )
-//       document.querySelector('body').style.setProperty("--txt-color-main", "#ffffff" )
-//       localStorage.setItem('olia-theme', "black")
-//     }
-
-
-
-// }
-
-// document.addEventListener("DOMContentLoaded", () => {
-
-
-//   if(localStorage.getItem("olia-theme") === "black") {
-//     document.querySelector('body').style.setProperty("--theme-dark-bg", "#000000")
-//     document.querySelector('body').style.setProperty("--txt-color-main", "#ffffff")
-//   } else {
-//     document.querySelector('body').style.setProperty("--theme-dark-bg", "#ffffff")
-//       document.querySelector('body').style.setProperty("--txt-color-main", "#000000")
-//         document.querySelector('.theme-button').classList.add('theme-button-toggle')
-//   }
-// })
-
-
-
-
-
 const toggleBtn = document.querySelector(".theme-button");
+const toggleBtnBurger = document.querySelector(".theme-button-burger");
+
 toggleBtn.addEventListener("click", function() {
   let sun = document.querySelector('.sun')
   let moon = document.querySelector('.moon')
@@ -117,27 +70,54 @@ toggleBtn.addEventListener("click", function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  init()
+
+toggleBtnBurger.addEventListener("click", function() {
+  let sun = document.querySelector('.sun-burger')
+  let moon = document.querySelector('.moon-burger')
+
+  if(document.documentElement.hasAttribute("theme")){
+    document.documentElement.removeAttribute("theme");
+    localStorage.removeItem('theme');
+    sun.classList.remove('active-theme')
+    moon.classList.add('active-theme')
+    toggleBtn.classList.remove('togglae-theme')
+  }
+  else{
+    document.documentElement.setAttribute("theme", "white");
+    localStorage.setItem('theme', 'white');
+    sun.classList.add('active-theme')
+    moon.classList.remove('active-theme')
+    toggleBtn.classList.add('togglae-theme')
+  }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  changeTheme()
 })
 
 
-function init() {
+function changeTheme() {
     let sun = document.querySelector('.sun')
     let moon = document.querySelector('.moon')
+    let sunBurger = document.querySelector('.sun-burger')
+    let moonBurger = document.querySelector('.moon-burger')
   if(localStorage.getItem('theme')) {
     document.documentElement.setAttribute("theme", "white");
     sun.classList.add('active-theme')
     moon.classList.remove('active-theme')
+    sunBurger.classList.add('active-theme')
+    moonBurger.classList.remove('active-theme')
     toggleBtn.classList.add('togglae-theme')
   }
   else {
     document.documentElement.removeAttribute("theme");
     sun.classList.remove('active-theme')
     moon.classList.add('active-theme')
+    sunBurger.classList.remove('active-theme')
+    moonBurger.classList.add('active-theme')
     toggleBtn.classList.remove('togglae-theme')
-
- 
   }
   
 }
