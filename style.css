@@ -91,7 +91,15 @@ header, footer {
     height: 100% !important;
     max-width: unset !important;
     max-height: unset !important;
+	transition: 0.3s linear;
 }
+
+
+.main-card-wrapper-img img:hover {
+	transform: scale(1.09);
+	transition: 0.3s linear;
+}
+
 
 .main-card-wrapper {
 	position: relative;
