@@ -941,3 +941,23 @@ header, footer {
 
 }
 
+@media all and (max-width:600px) {
+	.swiper {
+		width: 100%;
+		height: 400px
+	}
+	
+	.swiper-slide {
+		overflow: hidden;
+		width: 100%;
+		height: 400px
+	}
+	
+	.swiper-slide img {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+	}
+	
+
+}
