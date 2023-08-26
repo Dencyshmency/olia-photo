@@ -72,8 +72,8 @@ try {
 
 
 
-
-toggleBtnBurger.addEventListener("click", function() {
+try {
+    toggleBtnBurger.addEventListener("click", function() {
   let sun = document.querySelector('.sun-burger')
   let moon = document.querySelector('.moon-burger')
 
@@ -92,6 +92,10 @@ toggleBtnBurger.addEventListener("click", function() {
     toggleBtn.classList.add('togglae-theme')
   }
 });
+} catch {
+    
+}
+
 
 
 
