@@ -48,8 +48,8 @@ burgerButton.onclick = function () {
 
 const toggleBtn = document.querySelector(".theme-button");
 const toggleBtnBurger = document.querySelector(".theme-button-burger");
-
-toggleBtn.addEventListener("click", function() {
+try {
+    toggleBtn.addEventListener("click", function() {
   let sun = document.querySelector('.sun')
   let moon = document.querySelector('.moon')
 
@@ -68,6 +68,8 @@ toggleBtn.addEventListener("click", function() {
     toggleBtn.classList.add('togglae-theme')
   }
 });
+} catch {}
+
 
 
 
